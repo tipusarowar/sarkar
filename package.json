@@ -1,0 +1,23 @@
+{
+  "name": "banglagov-llm",
+  "version": "2.0.0",
+  "description": "Bangladesh Government citizen-services assistant (Bengali & English) grounded in official *.gov.bd content",
+  "private": true,
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "test": "node tests/test_suite.js",
+    "seed": "node engine/seed_db.js",
+    "crawl": "node scraper/crawler.js",
+    "crawl:districts": "node scraper/crawler.js --only-districts",
+    "embed": "node scripts/embed.js",
+    "eval": "node eval/run_eval.js",
+    "eval:llm": "node eval/run_eval.js --llm"
+  },
+  "dependencies": {
+    "pdfjs-dist": "4.10.38"
+  }
+}

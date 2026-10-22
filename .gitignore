@@ -1,0 +1,8 @@
+node_modules/
+.env
+data/*.db
+data/*.db-*
+eval/results/
+backup_*/
+__pycache__/
+*.pyc

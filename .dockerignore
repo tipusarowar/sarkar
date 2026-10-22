@@ -1,0 +1,7 @@
+node_modules
+.env
+data
+eval/results
+backup_*
+scraper/faulty-old-files
+training/*.jsonl

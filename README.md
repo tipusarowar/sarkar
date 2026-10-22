@@ -154,5 +154,3 @@ Admin endpoints need the header `X-Admin-Token: <BANGLAGOV_ADMIN_TOKEN>`.
 - **Grievance Redress System guidelines (অভিযোগ প্রতিকার ব্যবস্থা নির্দেশিকা)**
 - **Consumer Rights Protection Act, 2009 (ভোক্তা অধিকার সংরক্ষণ আইন, ২০০৯)**
 - Only public `*.gov.bd` content is collected; robots.txt is respected; personal numbers are masked in logs.
-#   s a r k a r  
- 

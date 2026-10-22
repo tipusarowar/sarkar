@@ -1,0 +1,31 @@
+# Pilot deployment: the app plus (optionally) a local Ollama for the AI model and
+# semantic search, so no citizen data leaves the server.
+#   docker compose up -d                      app only
+#   docker compose --profile ai up -d         app + Ollama
+#   docker compose exec ollama ollama pull qwen2.5:7b
+#   docker compose exec ollama ollama pull bge-m3
+# When using the "ai" profile, put these in .env:
+#   BANGLAGOV_LLM_ENDPOINT=http://ollama:11434/v1/chat/completions
+#   BANGLAGOV_MODEL_NAME=qwen2.5:7b
+#   BANGLAGOV_EMBED_ENDPOINT=http://ollama:11434/v1/embeddings
+#   BANGLAGOV_EMBED_MODEL=bge-m3
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: .env
+    volumes:
+      - banglagov-data:/app/data
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:0.6.8
+    profiles: ["ai"]
+    volumes:
+      - ollama-models:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  banglagov-data:
+  ollama-models:
